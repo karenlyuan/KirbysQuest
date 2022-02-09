@@ -11,15 +11,32 @@ public class p1 {
 		Scanner scanner;
 		File f = new File("Map1");
 		
+		/* two output formats
+		 * 
+		 * FIRST
+		 * 1) original maze setup
+		 * 2) route that Kirby takes (+)
+		 * 
+		 * SECOND (coordinate-based system)
+		 * only include locations of the route in the order at which Kirby travels (to get to the cake)
+		 * 
+		 * - if solution does not exist, print "The cake is a lie."
+		 * - for both inputs, use a scanner --> for output use a standard system.out command
+		 * 
+		 */
+		
+		System.out.println(f); //original maze setup
+		
+		
 		try {
 			//code that might throw a special error
 			scanner = new Scanner(f);
 			
 			//use next methods to grab the first 3 numbers
 			//from the file for your map info
-			int rows = scanner.nextInt();
-			int cols = scanner.nextInt();
-			int rooms = scanner.nextInt();
+			int row = scanner.nextInt();
+			int col = scanner.nextInt();
+			int room = scanner.nextInt();
 			
 			scanner.nextLine(); //move scanner to next line
 			while(scanner.hasNextLine()) {
@@ -55,6 +72,7 @@ public class p1 {
 			
 			
 		}
+		
 
 	}
 
