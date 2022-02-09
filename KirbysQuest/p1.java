@@ -10,6 +10,7 @@ public class p1 {
 		
 		Scanner scanner;
 		File f = new File("Map1");
+		File fRoute = new File("Map1Route");
 		
 		/* two output formats
 		 * 
@@ -26,17 +27,33 @@ public class p1 {
 		 */
 		
 		System.out.println(f); //original maze setup
+		System.out.println(fRoute); //route Kirby takes
 		
 		
 		try {
 			//code that might throw a special error
-			scanner = new Scanner(f);
+			scanner = new Scanner(fRoute);
 			
 			//use next methods to grab the first 3 numbers
 			//from the file for your map info
-			int row = scanner.nextInt();
-			int col = scanner.nextInt();
-			int room = scanner.nextInt();
+			
+			int rows = scanner.nextInt();
+			int cols = scanner.nextInt();
+			int rooms = scanner.nextInt();
+			
+			for(int i=0; i<rows; i++) {
+				for(int j=0; j<cols; j++) {
+					if(scanner.hasNext("+")) {
+						//set first column first row a "+" sign and its coordinates
+						System.out.println("+ " + i + " " + j);
+					} else if(!scanner.hasNext("+")) {
+						System.out.println("The cake is a lie.");
+					}
+				}
+				
+				scanner.nextLine();
+				
+			} //prints coordinate-based solution of Kirby's route
 			
 			scanner.nextLine(); //move scanner to next line
 			while(scanner.hasNextLine()) {
@@ -58,7 +75,7 @@ public class p1 {
 			System.out.println(e);
 		}
 		
-		public void coordinateBased(Scanner scan) {
+		/*public void coordinateBased(Scanner scan) {
 			rows = scan.nextInt();
 			cols = scan.nextInt();
 			rooms = scan.nextInt();
@@ -81,6 +98,8 @@ public class p1 {
 			throw new StringIndexOutOfBoundsException(i);
 		}
 		return rows[i];
+	} */
+
 	}
 
 }
