@@ -41,17 +41,34 @@ public class p1 {
 			int cols = scanner.nextInt();
 			int rooms = scanner.nextInt();
 			
+			String[][] map = new String[rows][cols];
+			
+			for(int r=0; r<rows; r++) {
+				for(int c=0; c<cols; c++) {
+					map[r][c] = scanner.next();
+				}
+				
+				scanner.nextLine();
+			}
+			
 			for(int i=0; i<rows; i++) {
+				int count = 0;
 				for(int j=0; j<cols; j++) {
 					if(scanner.hasNext("+")) {
 						//set first column first row a "+" sign and its coordinates
 						System.out.println("+ " + i + " " + j);
 					} else if(!scanner.hasNext("+")) {
-						System.out.println("The cake is a lie.");
+						System.out.println();
+					}
+					if(scanner.hasNext("C")) {
+						count++;
 					}
 				}
-				
+					
 				scanner.nextLine();
+				if(count != 1) {
+					System.out.println("The cake is a lie.");
+				}
 				
 			} //prints coordinate-based solution of Kirby's route
 			
