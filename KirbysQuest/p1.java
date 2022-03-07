@@ -102,8 +102,8 @@ public class p1 {
 						//System.out.println(line.charAt(c)+" "+r+" "+c);
 						cMap[r][c] = String.valueOf(scan.next());
 						System.out.println(cMap[r][c]+" "+r+" "+c);
-						if(scan.next() == "C") {
-							count++;
+						if(cMap[r][c] == "C") {
+							count = 1;
 						}
 					}
 					
@@ -137,7 +137,7 @@ public class p1 {
 //					
 //				}
 				
-				if(count != 1) {
+				if(!(count >= 1)) {
 					System.out.println("The cake is a lie.");
 				}
 				
