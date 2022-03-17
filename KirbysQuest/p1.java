@@ -1,10 +1,12 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class p1 {
 	
 	private static int rows, cols;
 	private static int rooms;
+	private static int kX, kY; //kirby starting position coordinates
 	
 	static Scanner scanner;
 	static File fMap = new File("Map1Route");
@@ -125,6 +127,77 @@ public class p1 {
 		}
 			
 	}
+	
+	public static int startPositionX(Scanner scan) {
+		try {
+			scan = new Scanner(fRoute);
+			
+			int rows = scan.nextInt();
+			int cols = scan.nextInt();
+			int rooms = scan.nextInt();
+				
+			//System.out.println("rows: "+rows+" cols: "+cols+" rooms: "+rooms);
+			// rows: 4 cols: 4 rooms: 1
+				
+			String[][] cMap = new String[rows][cols];
+				
+			int count = 0;
+				
+			for(int r=0; r<rows; r++) {
+				for(int c=0; c<cols; c++) {
+					cMap[r][c] = String.valueOf(scan.next());
+					if(cMap[r][c] == "K") {
+						r = kX;
+					}
+				}
+					
+				scan.nextLine();
+					
+				}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return kX;
+			
+	}
+	
+	public static int startPositionY(Scanner scan) {
+		try {
+			scan = new Scanner(fRoute);
+			
+			int rows = scan.nextInt();
+			int cols = scan.nextInt();
+			int rooms = scan.nextInt();
+				
+			//System.out.println("rows: "+rows+" cols: "+cols+" rooms: "+rooms);
+			// rows: 4 cols: 4 rooms: 1
+				
+			String[][] cMap = new String[rows][cols];
+				
+			int count = 0;
+				
+			for(int r=0; r<rows; r++) {
+				for(int c=0; c<cols; c++) {
+					cMap[r][c] = String.valueOf(scan.next());
+					if(cMap[r][c] == "K") {
+						c = kY;
+					}
+				}
+					
+				scan.nextLine();
+					
+				}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return kY;
+			
+	}
+	
 }
 		
 	/* private static char[] charAt(int i) {
