@@ -9,6 +9,10 @@ public class p1 {
 	static Scanner scanner;
 	static File fMap = new File("Map1Route");
 	static File fRoute = new File("Map1Route");
+	
+	public p1() {
+		
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Map based:");
