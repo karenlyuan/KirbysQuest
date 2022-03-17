@@ -13,15 +13,6 @@ public class p1 {
 	public p1() {
 		
 	}
-
-	public static void main(String[] args) {
-		System.out.println("Map based:");
-		mapBased(scanner);
-		System.out.println();
-		System.out.println("Coordinate based:");
-		coordinateBased(scanner);
-	}
-	
 	
 	public static void mapBased(Scanner scan) {
 		try {
