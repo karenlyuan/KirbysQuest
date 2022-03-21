@@ -14,7 +14,7 @@ public class p1 {
 		Stack.algorithm();
 		
 		//print out optimal path route
-		
+		OptimalPath.algorithm();
 		
 	}
 
