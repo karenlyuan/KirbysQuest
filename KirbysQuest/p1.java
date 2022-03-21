@@ -11,7 +11,7 @@ public class p1 {
 		Queue.algorithm();
 		
 		//print out stack route
-		
+		Stack.algorithm();
 		
 		//print out optimal path route
 		
