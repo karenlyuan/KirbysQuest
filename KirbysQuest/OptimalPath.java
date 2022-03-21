@@ -78,15 +78,16 @@ public class OptimalPath {
 			//code that might throw a special error
 			Scanner scan = new Scanner("Map1"); //fRoute - Map1Route
 				
-			for(int r=0; r<Formats.getRows(); r++) {
-				for(int c=0; c<Formats.getCols(); c++) {
-					System.out.println(Formats.map[r][c]+" "+r+" "+c);
-				}
-							
-				scan.nextLine();
-							
-				}
-						
+			for(int room=0; room<Formats.getRooms(); room++) {
+				for(int r=0; r<Formats.getRows(); r++) {
+					for(int c=0; c<Formats.getCols(); c++) {
+						System.out.println(Formats.map[r][c]+" "+r+" "+c);
+					}
+								
+					scan.nextLine();
+								
+					}
+			}		
 		} catch (Exception e) {
 			System.out.println(e);
 		}
