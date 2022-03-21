@@ -103,22 +103,24 @@ public class Stack {
 			//code that might throw a special error
 			Scanner scan = new Scanner("Map1"); //fRoute - Map1Route
 				
-			for(int r=0; r<Formats.getRows(); r++) {
-				for(int c=0; c<Formats.getCols(); c++) {
-//					String line = scan.nextLine();
-//					if(scan.hasNext("+")) {
-//						System.out.println("+"+" "+r+" "+c);
-//					}
+			for(int room=0; room<Formats.getRooms(); room++) {
+				for(int r=0; r<Formats.getRows(); r++) {
+					for(int c=0; c<Formats.getCols(); c++) {
+	//					String line = scan.nextLine();
+	//					if(scan.hasNext("+")) {
+	//						System.out.println("+"+" "+r+" "+c);
+	//					}
+							
+						//String line = scan.nextLine();
+						//System.out.println(line.charAt(c)+" "+r+" "+c);
+						Formats.map[r][c] = String.valueOf(scan.next());
+						System.out.println(Formats.map[r][c]+" "+r+" "+c);
+					}
 						
-					//String line = scan.nextLine();
-					//System.out.println(line.charAt(c)+" "+r+" "+c);
-					Formats.map[r][c] = String.valueOf(scan.next());
-					System.out.println(Formats.map[r][c]+" "+r+" "+c);
-				}
-					
-				scan.nextLine();
-					
-				}
+					scan.nextLine();
+						
+					}
+			}
 				
 		} catch (Exception e) {
 			System.out.println(e);
