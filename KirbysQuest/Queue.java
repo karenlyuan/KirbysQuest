@@ -22,7 +22,7 @@ public class Queue {
 	
 	public void algorithm() {
 		//enqueue Kirby's start position
-		add(p1.startPositionX(p1.scanner));
+		add(Formats.startPositionX(Formats.scanner));
 		//also add y value of Kirby's starting position!
 		
 		
