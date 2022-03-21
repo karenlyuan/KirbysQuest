@@ -11,18 +11,83 @@ public class Formats {
 	static Scanner scanner;
 	static File fMap = new File("Map1Route");
 	static File fRoute = new File("Map1Route");
+	static File Map1 = new File("Map1");
 	
-	public Formats() {
+	public static int startX;
+	public static int startY;
+	
+	public static String[][] map;
+	public static int currX, currY;
 		
+	public Formats() {
+		startX = Formats.startPositionX(Formats.scanner);
+		startY = Formats.startPositionY(Formats.scanner);
 	}
 	
-	public static void mapBased(Scanner scan) {
+	public static int getRows() {
+		return rows;
+	}
+	
+	public static int getCols() {
+		return cols;
+	}
+	
+	public static int getRooms() {
+		return rooms;
+	}
+	
+	public static void fillMap(Scanner scan) {
 		try {
-			scan = new Scanner(fMap);
+			scan = new Scanner(Map1);
 			
-			int rows = scan.nextInt();
-			int cols = scan.nextInt();
-			int rooms = scan.nextInt();
+			rows = scan.nextInt();
+			cols = scan.nextInt();
+			map = new String[rows][cols];
+			
+			while(scan.hasNextLine()) {
+				for(int r=0; r<rows; r++) {
+					for(int c=0; c<cols; c++) {
+						map[r][c] = String.valueOf(scan.next());
+			}
+				System.out.println();
+				scan.nextLine();
+				}
+			}
+		}
+	 catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static String[][] getMap() {
+		fillMap(scanner);
+		return map;
+	}
+	
+	public static int getCurrX() {
+		return currX;
+	}
+	
+	public static int getCurrY() {
+		return currY;
+	}
+	
+	public static void setCurrX(int x) {
+		x = currX;
+	}
+	
+	public static void setCurrY(int y) {
+		y = currY;
+	}
+	
+	
+	public static void mapBased(Scanner scan, File file) {
+		try {
+			scan = new Scanner(file); //fMap - Map1Route
+			
+			rows = scan.nextInt();
+			cols = scan.nextInt();
+			rooms = scan.nextInt();
 				
 			System.out.println(rows+" "+cols+" "+rooms);
 				
@@ -46,7 +111,7 @@ public class Formats {
 	}
 		
 		
-	public static void coordinateBased(Scanner scan) {
+	public static void coordinateBased(Scanner scan, File file) {
 //		scan.nextLine();
 //			
 //		while(scanner.hasNextLine()) {
@@ -56,14 +121,14 @@ public class Formats {
 			
 		try {
 			//code that might throw a special error
-			scan = new Scanner(fRoute);
+			scan = new Scanner(file); //fRoute - Map1Route
 				
 			//use next methods to grab the first 3 numbers
 			//from the file for your map info
 				
-			int rows = scan.nextInt();
-			int cols = scan.nextInt();
-			int rooms = scan.nextInt();
+			rows = scan.nextInt();
+			cols = scan.nextInt();
+			rooms = scan.nextInt();
 				
 			//System.out.println("rows: "+rows+" cols: "+cols+" rooms: "+rooms);
 			// rows: 4 cols: 4 rooms: 1
@@ -128,9 +193,10 @@ public class Formats {
 			
 	}
 	
+	
 	public static int startPositionX(Scanner scan) {
 		try {
-			scan = new Scanner(fRoute);
+			scan = new Scanner(Map1);
 			
 			int rows = scan.nextInt();
 			int cols = scan.nextInt();
@@ -147,7 +213,7 @@ public class Formats {
 				for(int c=0; c<cols; c++) {
 					cMap[r][c] = String.valueOf(scan.next());
 					if(cMap[r][c] == "K") {
-						r = kX;
+						kX = r;
 					}
 				}
 					
@@ -165,7 +231,7 @@ public class Formats {
 	
 	public static int startPositionY(Scanner scan) {
 		try {
-			scan = new Scanner(fRoute);
+			scan = new Scanner(Map1);
 			
 			int rows = scan.nextInt();
 			int cols = scan.nextInt();
@@ -182,7 +248,7 @@ public class Formats {
 				for(int c=0; c<cols; c++) {
 					cMap[r][c] = String.valueOf(scan.next());
 					if(cMap[r][c] == "K") {
-						c = kY;
+						kY = c;
 					}
 				}
 					
