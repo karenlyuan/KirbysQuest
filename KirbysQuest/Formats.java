@@ -42,6 +42,7 @@ public class Formats {
 			
 			rows = scan.nextInt();
 			cols = scan.nextInt();
+			rooms = scan.nextInt();
 			map = new String[rows][cols];
 			
 			while(scan.hasNextLine()) {
@@ -94,13 +95,15 @@ public class Formats {
 			String[][] map = new String[rows][cols];
 				
 			while(scan.hasNextLine()) {
-				for(int r=0; r<rows; r++) {
-					for(int c=0; c<cols; c++) {
-						map[r][c] = String.valueOf(scan.next());
-						System.out.print(map[r][c]+" ");
+				for(int room=0; room<Formats.getRooms(); room++) {
+					for(int r=0; r<rows; r++) {
+						for(int c=0; c<cols; c++) {
+							map[r][c] = String.valueOf(scan.next());
+							System.out.print(map[r][c]+" ");
+						}
+						System.out.println();
+						scan.nextLine();
 					}
-					System.out.println();
-					scan.nextLine();
 				}
 			}
 				
@@ -137,25 +140,27 @@ public class Formats {
 				
 			int count = 0;
 				
-			for(int r=0; r<rows; r++) {
-				for(int c=0; c<cols; c++) {
-//					String line = scan.nextLine();
-//					if(scan.hasNext("+")) {
-//						System.out.println("+"+" "+r+" "+c);
-//					}
-						
-					//String line = scan.nextLine();
-					//System.out.println(line.charAt(c)+" "+r+" "+c);
-					cMap[r][c] = String.valueOf(scan.next());
-					System.out.println(cMap[r][c]+" "+r+" "+c);
-					if(cMap[r][c] == "C") {
-						count = 1;
+			for(int room=0; room<Formats.getRooms(); room++) {
+				for(int r=0; r<rows; r++) {
+					for(int c=0; c<cols; c++) {
+	//					String line = scan.nextLine();
+	//					if(scan.hasNext("+")) {
+	//						System.out.println("+"+" "+r+" "+c);
+	//					}
+							
+						//String line = scan.nextLine();
+						//System.out.println(line.charAt(c)+" "+r+" "+c);
+						cMap[r][c] = String.valueOf(scan.next());
+						System.out.println(cMap[r][c]+" "+r+" "+c);
+						if(cMap[r][c] == "C") {
+							count = 1;
+						}
 					}
-				}
-					
-				scan.nextLine();
-					
-				}
+						
+					scan.nextLine();
+						
+					}
+			}
 				
 //			while(scan.hasNextLine()) {
 //				String line = scan.nextLine();
