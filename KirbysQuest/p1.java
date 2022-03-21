@@ -8,13 +8,19 @@ public class p1 {
 		Formats.coordinateBased(Formats.scanner, Formats.fRoute);
 		
 		//print out queue route
+		long queueStart = System.currentTimeMillis();
 		Queue.algorithm();
+		System.out.println("Total Runtime: " + String.valueOf(System.currentTimeMillis()-queueStart) + " seconds");
 		
 		//print out stack route
+		long stackStart = System.currentTimeMillis();
 		Stack.algorithm();
+		System.out.println("Total Runtime: " + String.valueOf(System.currentTimeMillis()-stackStart) + " seconds");
 		
 		//print out optimal path route
+		long optimalStart = System.currentTimeMillis();
 		OptimalPath.algorithm();
+		System.out.println("Total Runtime: " + String.valueOf(System.currentTimeMillis()-optimalStart) + " seconds");
 		
 	}
 
