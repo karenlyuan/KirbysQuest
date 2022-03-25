@@ -101,7 +101,7 @@ public class Stack {
 		//print out map with path
 		try {
 			//code that might throw a special error
-			Scanner scan = new Scanner(Testing.f); //fRoute - Map1Route
+			Scanner scan = new Scanner(p1.f); //fRoute - Map1Route
 				
 			for(int room=0; room<Formats.getRooms(); room++) {
 				for(int r=0; r<Formats.getRows(); r++) {
