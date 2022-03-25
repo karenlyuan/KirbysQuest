@@ -2,12 +2,13 @@ import java.io.File;
 import java.util.Scanner;
 
 public class p1 {
+	
+	public static File f;
   
 	public static void main(String[] args) {
 		
 		String str = args[args.length-1];
 		File f = new File(str);
-		Scanner scan = new Scanner(f);
 		
 		System.out.println("Map based:");
 		Formats.mapBased(Formats.scanner, Formats.fMap);
